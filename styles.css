@@ -1,0 +1,314 @@
+/* Color palette and modern fonts
+
+Palette (provided):
+- Primary Yellow: #FFC907
+- Primary Blue:   #2E9DF7
+- Dark:           #1A1A1A
+
+We also provide 50% tints using rgba() for softer backgrounds and overlays.
+*/
+
+:root {
+  --primary: #FFC907; /* yellow */
+  --primary-50: rgba(255, 201, 7, 0.5);
+  --accent: #2E9DF7; /* blue */
+  --accent-50: rgba(46, 157, 247, 0.5);
+  --dark: #1A1A1A; /* dark neutral */
+  --dark-50: rgba(26, 26, 26, 0.5);
+  --bg: #ffffff; /* section background */
+  --page-bg: rgba(46, 157, 247, 0.03); /* very light tint for page background */
+}
+
+/* 
+  Charity: Water Landing Page Styles
+  This CSS uses the provided color palette and beginner-friendly styles.
+*/
+
+/* Set up the main font and background color for the whole page */
+body {
+  background-color: var(--page-bg);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  /* Increase default line-height for better readability */
+  line-height: 1.95;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Headings: use Georgia for a classic, readable heading serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, 'Inter', serif;
+  /* Slightly increased heading line-height to improve legibility with larger sizes */
+  line-height: 2;
+}
+
+/* Ensure paragraph-like blocks keep comfortable spacing */
+p,
+.story p,
+.impact-text p,
+.call-to-action p {
+  line-height: 2.1;
+}
+
+/* Add a slight shadow and rounded corners to each section for depth */
+section {
+  background: var(--bg);
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 2px 14px var(--accent-50); /* Soft tinted shadow */
+  margin: 24px 10px; /* Space between sections */
+  padding: 24px 16px;
+}
+
+/* Hero Section Styles */
+.hero {
+  position: relative; /* Needed for overlay */
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  /* Make the hero full-bleed (edge-to-edge) and vertically center content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 60px 20px;
+  border-radius: 0 0 16px 16px;
+  background-blend-mode: darken;
+  background-color: var(--accent-50); /* 50% blue tint overlay for legible text */
+  width: 100vw; /* full viewport width */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Make the headline bold and modern */
+.hero h1 {
+  font-size: 3.2em; /* increased for stronger visual impact */
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+
+/* Style the subheadline */
+.hero p {
+  font-size: 1.4em; /* slightly larger subheadline for emphasis */
+  margin-top: 0;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+/* Story Section Styles */
+.story {
+  background-color: var(--accent-50); /* soft blue tint */
+  color: var(--dark);
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* Add accent color to section headings */
+h2 {
+  color: var(--accent);
+  margin-top: 0;
+  font-weight: 700;
+}
+
+/* Call-to-Action Section Styles */
+.call-to-action {
+  background-color: var(--primary);
+  color: var(--dark);
+  text-align: center;
+  padding: 30px 20px;
+}
+
+/* Style the impact story image */
+.impact-image {
+  width: 100%;
+  max-width: 420px; /* larger default image */
+  border-radius: 10px;
+  margin-bottom: 0;
+  display: block;
+  box-shadow: 0 6px 18px var(--accent-50);
+}
+
+/* Remove default figure margin and tighten spacing between image and text */
+
+.impact-content figure {
+  margin: 0;
+  position: static; /* caption will appear below the image */
+}
+
+.impact-text {
+  margin: 0 0 0 0;
+}
+
+/* Make the impact story paragraph larger and more readable */
+.impact-text p {
+  font-size: 1.25em;
+}
+
+/* Caption positioned over image at bottom-right like a citation */
+.impact-content figure figcaption {
+  position: static;
+  display: block;
+  font-size: 0.9em;
+  color: var(--dark);
+  background: transparent;
+  padding: 8px 0 0 0;
+  margin-top: 8px;
+  text-align: left;
+}
+
+/* Center the impact section heading */
+.impact-story h2 {
+  text-align: center;
+}
+
+/* Donate Button Styles */
+.donate-button {
+  display: inline-block;
+  background-color: var(--dark);
+  color: #fff;
+  padding: 14px 32px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.05em;
+  margin-top: 18px;
+  box-shadow: 0 6px 18px var(--dark-50);
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: none;
+  cursor: pointer;
+}
+
+/* Change button color when hovered */
+.donate-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+}
+
+/* Add some spacing between sections */
+section {
+  margin-bottom: 20px;
+}
+
+/*
+  Media Queries for Responsive Design
+
+  Purpose: Media queries let us adjust font sizes, spacing, and layout
+  so the page reads well on phones, tablets, and large desktop screens.
+  We keep the rules simple and commented so beginners can learn why
+  each breakpoint exists and what it changes.
+*/
+
+/* Small screens (phones) - stack content and reduce spacing for readability */
+@media (max-width: 600px) {
+  /* Reduce hero padding so important text stays above the fold on phones */
+  .hero {
+    padding: 32px 8px;
+    min-height: 48vh;
+  }
+
+  /* Make headline smaller to avoid wrapping and overflow */
+  .hero h1 {
+    font-size: 1.8em; /* larger on phones for readability */
+  }
+
+  /* Slightly increase subheadline size on phones */
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  /* Tighter padding for stacked sections on small screens */
+  .story,
+  .call-to-action,
+  .donation-section {
+    padding: 14px 12px;
+  }
+
+  /* Stack impact image above text for vertical flow on phones */
+  .impact-content {
+    display: block; /* Stack items vertically */
+    text-align: center;
+  }
+
+  .impact-image {
+    width: 90%;    /* Make image take up most of the width */
+    max-width: 220px;
+    margin: 0 auto 12px;
+  }
+
+  .donate-button {
+    padding: 12px 24px;
+    font-size: 1em;
+  }
+}
+
+/* Medium screens (tablets) - allow side-by-side content where space permits */
+@media (min-width: 601px) and (max-width: 899px) {
+  .hero {
+    padding: 56px 24px;
+    min-height: 56vh;
+  }
+
+  .hero h1 {
+    font-size: 2.6em; /* medium screens: increase headline */
+  }
+
+  .hero p {
+    font-size: 1.15em;
+  }
+
+  .impact-content {
+    display: flex;           /* Place items in a row */
+    align-items: center;     /* Vertically center items */
+    justify-content: center; /* Center the whole group */
+    gap: 32px;               /* Increased space between image and text */
+    text-align: left;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .impact-image {
+    width: 360px;
+  }
+}
+
+/* Large screens (desktops) - increase spacing and font sizes for impact */
+@media (min-width: 900px) {
+  .hero {
+    padding: 80px 40px;
+    min-height: 70vh;
+  }
+
+  .hero h1 {
+    font-size: 4.2em; /* big, bold headline on desktop */
+    letter-spacing: 0.8px;
+  }
+
+  .hero p {
+    font-size: 1.15em;
+  }
+
+  .impact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px; /* wider gap on large screens */
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 1em; /* larger text for impact story on desktop */
+  }
+
+  .impact-image {
+    width: 300px;
+  }
+
+  .donate-button {
+    padding: 16px 40px;
+    font-size: 1.15em;
+  }
+}
